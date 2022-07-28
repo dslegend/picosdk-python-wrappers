@@ -821,4 +821,4 @@ doc = """ PICO_STATUS ps6000aSetTemperatureSensorInteractioNCallback
         int16_t    handle,
         PicoTemperatureSensorInteractions    callback
     ); """
-ps6000a.make_symbol("_SetTemperatureSensroInteractionCallback", "ps6000aSetTemperatureSensorInteractionCallback", c_uint32, [c_int16, c_void_p], doc)
+ps6000a.make_symbol("_SetTemperatureSensorInteractionCallback", "ps6000aSetTemperatureSensorInteractionCallback", c_uint32, [c_int16, c_void_p], doc)
