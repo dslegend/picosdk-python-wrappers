@@ -615,6 +615,18 @@ doc = """ PICO_STATUS ps6000RunBlock
 ps6000.make_symbol("_RunBlock", "ps6000RunBlock", c_uint32,
                    [c_int16, c_uint32, c_uint32, c_uint32, c_int16, c_void_p, c_uint32, c_void_p, c_void_p], doc)
 
+doc = """ void ps6000BlockReady
+    (
+        int16_t          handle,
+        PICO_STATUS      status,
+        void             *pParameter
+    ); """
+ps6000.BlockReadyType = C_CALLBACK_FUNCTION_FACTORY(None,
+                                                    c_int16,
+                                                    c_uint32,
+                                                    c_void_p)
+ps6000.BlockReadyType.__doc__ = doc
+
 doc = """ PICO_STATUS ps6000IsReady
     (
         int16_t  handle,
