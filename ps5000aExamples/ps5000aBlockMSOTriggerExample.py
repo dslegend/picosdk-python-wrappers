@@ -125,7 +125,7 @@ assert_pico_ok(status["setTriggerDigitalPortProperties"])
 status["autoTriggerus"] = ps.ps5000aSetAutoTriggerMicroSeconds(chandle, 10000)
 assert_pico_ok(status["autoTriggerus"])
 
-print ("Starting data collection...")
+print("Starting data collection...")
 
 # Starts the block capture
 # handle = chandle
@@ -169,7 +169,7 @@ while ready.value == check.value:
 status["GetValues"] = ps.ps5000aGetValues(chandle, 0, ctypes.byref(cTotalSamples), 1, 0, 0, ctypes.byref(overflow))
 assert_pico_ok(status["GetValues"])
 
-print ("Data collection complete.")
+print("Data collection complete.")
 
 # Obtain binary for Digital Port 0
 # The tuple returned contains the channels in order (D7, D6, D5, ... D0).
@@ -178,7 +178,7 @@ bufferDPort0 = splitMSODataFast(cTotalSamples, bufferDPort0Max)
 # Creates the time data
 time = np.linspace(0, (cTotalSamples.value - 1) * timeIntervalNs.value, cTotalSamples.value)
 
-print ("Plotting data...")
+print("Plotting data...")
 
 # Plot the data from digital channels onto a graph
 
@@ -197,7 +197,7 @@ plt.ylabel('Logic Level')
 plt.legend(loc="upper right")
 plt.show()
 
-print ("Close figure to stop the device and close the connection.")
+print("Close figure to stop the device and close the connection.")
 
 # Stops the scope
 # handle = chandle
