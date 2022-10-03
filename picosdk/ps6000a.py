@@ -11,6 +11,7 @@ from ctypes import *
 from picosdk.library import Library
 from picosdk.ctypes_wrapper import C_CALLBACK_FUNCTION_FACTORY
 from picosdk.constants import make_enum
+from picosdk.PicoDeviceEnums import picoEnum as enums
 
 
 class Ps6000alib(Library):
@@ -19,15 +20,7 @@ class Ps6000alib(Library):
 
 ps6000a = Ps6000alib()
 
-ps6000a.PS6000A_DEVICE_RESOLUTION = make_enum([
-    "PS6000A_DR_8BIT",
-    "PS6000A_DR_12BIT",
-    "PS6000A_DR_14BIT",
-    "PS6000A_DR_15BIT",
-    "PS6000A_DR_16BIT",
-])
-
-ps6000a.DEFAULT_RESOLUTION = ps6000a.PS6000A_DEVICE_RESOLUTION["PS6000A_DR_8BIT"]
+ps6000a.DEFAULT_RESOLUTION = enums.PICO_DEVICE_RESOLUTION["PICO_DR_8BIT"]
 
 doc = """ void ps6000aBlockReady
     (
