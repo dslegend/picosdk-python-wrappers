@@ -311,10 +311,26 @@ picoEnum.PICO_TEMPERATURE_REFERENCE = make_enum([
     ])
     
 def _define_digital_port():
-    Pico_DIGITAL_PORT_NONE = 0
+    PICO_DIGITAL_PORT_NONE = 0
     PICO_DIGITAL_PORT_MSO_POD = 1000
     PICO_DIGITAL_PORT_UNKNOWN_DEVICE = -2
     
     return {k.upper(): v for k, v in locals().items() if k.startswith("PICO")}
     
 picoEnum.PICO_DIGITAL_PORT = _define_digital_port
+
+def _define_pico_connect_probe_range():
+    PICO_10MV = 0
+    PICO_20MV = 1
+    PICO_50MV = 2
+    PICO_100MV = 3
+    PICO_200MV = 4
+    PICO_500MV = 5
+    PICO_1V = 6
+    PICO_2V = 7
+    PICO_5V = 8
+    PICO_10V = 9
+    
+    return {k.upper(): v for k, v in locals().items() if k.startswith("PICO")}
+    
+picoEnum.PICO_CONNECT_PROBE_RANGE = _define_pico_connect_probe_range()
